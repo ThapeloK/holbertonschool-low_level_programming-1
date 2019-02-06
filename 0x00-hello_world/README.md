@@ -1,0 +1,1 @@
+This is the first project in C. It will cover mainly compilation process and stages
