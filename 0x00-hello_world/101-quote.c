@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+ssize_t write(int fieldes, const void *buff, size_t nbytes);
+
 /**
  * main - simplicity
  * Description: very simple function
@@ -8,6 +10,8 @@
 
 int main(void)
 {
-	fprintf(stderr, "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+	write(1,
+"and that piece of art is useful\" - Dora Korpar, 2015-10-19\n",
+60);
 	return (1);
 }
