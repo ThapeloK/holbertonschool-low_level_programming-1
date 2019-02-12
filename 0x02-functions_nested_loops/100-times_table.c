@@ -1,16 +1,14 @@
 #include "holberton.h"
 
 /**
-* times_table - prints times table till n
+* print_times_table - prints times table till n
 *@n: prints times table till this number
 *
 * Return: void
 */
-
 void print_times_table(int n)
 {
-	int i;
-	int j;
+	int i, j;
 
 	if (!(n > 15 || n < 0))
 	{
@@ -47,7 +45,6 @@ void print_times_table(int n)
 					_putchar((i * j) % 10 + '0');
 				}
 			}
-
 			_putchar('\n');
 		}
 	}
