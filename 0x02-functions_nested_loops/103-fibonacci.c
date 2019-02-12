@@ -9,19 +9,20 @@
 int main(void)
 {
 	unsigned long int prev, current, next, sum;
-	int i;
 
-	prev = 1;
+	prev = 0;
 	current = 2;
-	for (i = 2; i < 50; i++)
+	sum = prev + current;
+	while (current <= 4000000)
 	{
-		next = prev + current;
+		next = 4 * current + prev;
+		if (next > 4000000)
+		{
+			break;
+		}
 		prev = current;
 		current = next;
-		if (next <= 4000000 && ((i > 2) && (i % 3) == 0))
-		{
-			sum += current;
-		}
+		sum += current;
 	}
 	printf("%lu\n", sum);
 	return (0);
