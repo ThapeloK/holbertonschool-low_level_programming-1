@@ -8,19 +8,19 @@
 
 int main(void)
 {
-	long double prev, current, next;
+	double prev, current, next;
 	int i;
 
 	prev = 1;
 	current = 2;
-	printf("%LG, %LG, ", prev, current);
-	for (i = 2; i < 99; i++)
+	printf("%.0f, %.0f, ", prev, current);
+	for (i = 2; i < 98; i++)
 	{
 		next = prev + current;
-		printf("%LG", next);
+		printf("%.0f", next);
 		prev = current;
 		current = next;
-		if (i != 98)
+		if (i != 97)
 			printf(", ");
 		else
 			putchar('\n');
