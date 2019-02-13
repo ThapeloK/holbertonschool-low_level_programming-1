@@ -17,7 +17,7 @@ int main(void)
 	t2 = 2;
 	d = 10000;
 	printf("%lu, %lu, ", t1, t2);
-	for (i = 2; i <= 98; i++)
+	for (i = 2; i < 97; i++)
 	{
 		h3 = h1 + h2;
 		t3 = t1 + t2;
@@ -30,7 +30,7 @@ int main(void)
 			printf("%lu", t3);
 		else
 			printf("%lu%04lu", h3, t3);
-		if (i != 98)
+		if (i != 96)
 			printf(", ");
 		else
 			putchar('\n');
