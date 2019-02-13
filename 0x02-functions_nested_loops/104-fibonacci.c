@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	unsigned long h1, h2, h3, t1, t2, t3;
+	long h1, h2, h3, t1, t2, t3;
 	int i, d;
 
 	h1 = 0;
@@ -16,7 +16,7 @@ int main(void)
 	t1 = 1;
 	t2 = 2;
 	d = 10000;
-	printf("%lu, %lu", t1, t2);
+	printf("%lu, %lu, ", t1, t2);
 	for (i = 2; i <= 98; i++)
 	{
 		h3 = h1 + h2;
