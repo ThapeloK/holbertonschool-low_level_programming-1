@@ -2,8 +2,9 @@
 
 /**
 * print_number - prints int with putchar
+* @n: takes number
 *
-* Return: int
+* Return: void
 */
 
 void print_number(int n)
