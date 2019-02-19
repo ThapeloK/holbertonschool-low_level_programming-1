@@ -1,6 +1,4 @@
 #include "holberton.h"
-
-#include "holberton.h"
 /**
 * _strlen - returns the length of the string
 * @s: takes string
