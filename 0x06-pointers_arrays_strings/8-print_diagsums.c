@@ -4,6 +4,7 @@
 /**
  * print_diagsums - prints the sum of diagonals of a matrix
  * @a: multi dimensional array or matrix
+ * @size: deminsion of a matrix
  *
  * Return: Nothing
  */
