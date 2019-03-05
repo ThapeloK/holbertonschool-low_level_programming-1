@@ -36,15 +36,16 @@ char *argstostr(int ac, char **av)
 	{
 		return (NULL);
 	}
-	for (i = 0; av[i]; i++)
+	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j]; j++)
 		{
 			sum++;
 		}
+		sum++;
 	}
-	s = malloc(sum * sizeof(char) + 1);
-	if (s == NULL)
+		     s = malloc(sum * sizeof(char) + 1);
+	     if (s == NULL)
 		return (NULL);
 	for (i = 0, a = 0; av[i]; i++)
 	{
@@ -55,5 +56,6 @@ char *argstostr(int ac, char **av)
 		s[a++] = '\n';
 	}
 	s[a] = '\0';
+	printf("%i\n", sum);
 	return (s);
 }
