@@ -2,6 +2,7 @@
 
 /**
  * _strdup - duplicates a string
+ * @str: string
  *
  * Return: a pointer to the string
  */
@@ -12,7 +13,7 @@ char *_strdup(char *str)
 
 	if (!*str)
 		return (NULL);
-	while(str[i])
+	while (str[i])
 	{
 		i++;
 	}
@@ -20,7 +21,7 @@ char *_strdup(char *str)
 	if (s == NULL)
 		return (NULL);
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		s[i] = str[i];
 		i++;
