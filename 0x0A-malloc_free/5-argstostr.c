@@ -32,7 +32,7 @@ char *argstostr(int ac, char **av)
 	int i, j, sum = 0, a;
 	char *s;
 
-	if (ac == 0 || av == NULL)
+	if (!ac || !av)
 	{
 		return (NULL);
 	}
