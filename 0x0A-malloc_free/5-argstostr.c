@@ -24,8 +24,8 @@ char *argstostr(int ac, char **av)
 		}
 		sum++;
 	}
-		     s = malloc(sum * sizeof(char) + 1);
-	     if (s == NULL)
+	s = malloc(sum * sizeof(char) + 1);
+	if (s == NULL)
 		return (NULL);
 	for (i = 0, a = 0; av[i]; i++)
 	{
