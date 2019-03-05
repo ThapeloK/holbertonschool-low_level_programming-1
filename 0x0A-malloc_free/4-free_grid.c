@@ -3,7 +3,7 @@
 /**
  * free_grid - resets the space
  * @grid: an array
- * @grid: height of the array
+ * @height: height of the array
  * Return: Noting
  */
 void free_grid(int **grid, int height)
