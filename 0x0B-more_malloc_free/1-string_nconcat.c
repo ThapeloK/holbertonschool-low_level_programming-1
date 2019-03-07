@@ -40,15 +40,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len2 = 0;
 	else
 		len2 = _strlen(s2);
+	if (n < len2)
+		len2 = n;
 	len = len1 + len2;
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)
 		return (NULL);
 	for (; i < len1; i++)
 		str[i] = s1[i];
-	if (n > len2)
-		n = len2;
-	for (; j < n; j++, i++)
+	for (; j < len2; j++, i++)
 		str[i] = s2[j];
 	str[i] = '\0';
 	return (str);
