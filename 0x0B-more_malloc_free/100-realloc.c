@@ -14,7 +14,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	char *s, *a;
 	unsigned int i, limit;
 
-	if(old_size == new_size)
+	if (old_size == new_size)
 		return (ptr);
 	if (ptr != NULL && new_size == 0)
 	{
@@ -27,7 +27,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	if (!s)
 		return (NULL);
 	a = ptr;
-	limit = new_size > old_size ? old_size: new_size;
+	limit = new_size > old_size ? old_size : new_size;
 	for (i = 0; i < limit; i++)
 	{
 		s[i] = a[i];
