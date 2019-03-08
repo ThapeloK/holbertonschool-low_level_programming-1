@@ -88,8 +88,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 int main(int argc, char **argv)
 {
-	int len1, len2, carry, a, b, i, j, flag = 0;
-	int *result, *str;
+	int len1, len2, carry, a, b, i, j;
+	int *result;
 
 	isError(argc, argv);
 	len1 = _strlen(argv[1]), len2 = _strlen(argv[2]);
@@ -113,14 +113,12 @@ int main(int argc, char **argv)
 		if (carry > 0)
 			result[i + j + 1] += carry;
 	}
-	str = result;
-	if (*result == 0)
-		result++;
-	for (a = 0; a < len1 + len2 - 1; a++)
+	a = result[0] == 0 ? 1 : 0;
+	for (; a < len1 + len2; a++)
 	{
 		printf("%d", result[a]);
 	}
 	printf("\n");
-	free(str);
+	free(result);
 	return (0);
 }
