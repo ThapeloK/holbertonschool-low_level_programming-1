@@ -98,7 +98,7 @@ int main(int argc, char **argv)
 		printf("0\n");
 		return(0);
 	}
-	result = _calloc((len1 + len2), sizeof(char));
+	result = _calloc((len1 + len2), sizeof(int));
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		carry = 0;
