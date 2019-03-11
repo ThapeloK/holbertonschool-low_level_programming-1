@@ -43,28 +43,33 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *our_dog;
+	char *c_name, *c_owner;
 	int i, j;
 
 	our_dog = malloc(sizeof(dog_t));
 	if (!our_dog)
 		return (NULL);
-	for (i = 0; name[i]; i++);
-	for (j = 0; owner[j]; j++);
-	our_dog->name = malloc(sizeof(char) * i + 1);
-	if (!our_dog->name)
+	for (i = 0; name[i]; i++)
+		;
+	for (j = 0; owner[j]; j++)
+		;
+	c_name = malloc(sizeof(char) * i + 1);
+	if (!c_name)
 	{
 		free(our_dog);
 		return (NULL);
 	}
-	our_dog->name = _strdup(name);
+	c_name = _strdup(name);
 	our_dog->age = age;
-	our_dog->owner = malloc(sizeof(char) * j + 1);
-	if (!our_dog->owner)
+	c_owner = malloc(sizeof(char) * j + 1);
+	if (!c_owner)
 	{
-		free (our_dog->name);
-		free (our_dog);
+		free(c_name);
+		free(our_dog);
 		return (NULL);
 	}
-	our_dog->owner = _strdup(owner);
+	c_owner = _strdup(owner);
+	our_dog->name = c_name;
+	our_dog->owner = c_owner;
 	return (our_dog);
 }
