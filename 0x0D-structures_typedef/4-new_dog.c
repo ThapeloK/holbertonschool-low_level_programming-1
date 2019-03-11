@@ -2,35 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
- * _strdup - duplicates a string
- * @str: string
- *
- * Return: a pointer to the string
- */
-char *_strdup(char *str)
-{
-	char *s;
-	int i = 0;
-
-	if (str == NULL)
-		return (NULL);
-	while (str[i])
-	{
-		i++;
-	}
-	s = malloc(sizeof(char) * i + 1);
-	if (s == NULL)
-		return (NULL);
-	i = 0;
-	while (str[i])
-	{
-		s[i] = str[i];
-		i++;
-	}
-	s[i++] = '\0';
-	return (s);
-}
 
 /**
  * new_dog - prints struct
@@ -44,7 +15,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *our_dog;
 	char *c_name, *c_owner;
-	int i, j;
+	int i, j, a, b;
 
 	our_dog = malloc(sizeof(dog_t));
 	if (!our_dog)
@@ -59,8 +30,9 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(our_dog);
 		return (NULL);
 	}
-	c_name = _strdup(name);
-	our_dog->age = age;
+	for (a = 0; a <= i; a++)
+		c_name[a] = name[a];
+	c_name[a] = '\0';
 	c_owner = malloc(sizeof(char) * j + 1);
 	if (!c_owner)
 	{
@@ -68,8 +40,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		free(our_dog);
 		return (NULL);
 	}
-	c_owner = _strdup(owner);
+	for (b = 0; b <= j; b++)
+		c_owner[b] = owner[b];
+	c_owner[b] = '\0';
 	our_dog->name = c_name;
+	our_dog->age = age;
 	our_dog->owner = c_owner;
 	return (our_dog);
 }
