@@ -24,9 +24,6 @@ int main(int argc, char *argv[])
 		exit(2);
 	}
 	while (num1--)
-	{
-		printf("%02hhx ", *obj++);
-	}
-	printf("\n");
+		printf("%02hhx%s", *obj++, num1 == 1 ? "\n" : " " );
 	return (0);
-}
+	}
