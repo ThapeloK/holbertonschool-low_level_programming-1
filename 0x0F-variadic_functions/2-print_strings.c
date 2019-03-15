@@ -16,8 +16,15 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_copy(copy, list);
 	for (i = 0; i < n; i++)
 	{
-		printf("%s%s", va_arg(list, char *) ? va_arg(copy, char *) : "(nil)",
-		       separator ? (i == n - 1 ? "\n" : separator) : "");
+		if (va_arg(list, char *))
+			printf("%s", va_arg(copy, char *));
+		else
+		{
+			va_arg(copy, char *);
+			printf("(nil)");
+		}
+		printf("%s", separator ? (i == n - 1 ? "\n" : separator)
+		       : (i == n - 1) ? "\n" : "");
 	}
 	va_end(list);
 }
