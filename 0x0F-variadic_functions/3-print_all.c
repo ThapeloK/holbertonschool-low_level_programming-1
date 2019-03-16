@@ -10,10 +10,8 @@ void print_all(const char * const format, ...)
 	int a = 0;
 	char *copy, *sep = "";
 
-	if (!format)
-		return;
 	va_start(list, format);
-	while (format[a])
+	while (format && format[a])
 	{
 		switch (format[a])
 		{
