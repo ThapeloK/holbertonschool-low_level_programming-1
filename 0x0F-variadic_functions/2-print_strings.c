@@ -23,8 +23,9 @@ void print_strings(const char *separator, const unsigned int n, ...)
 			va_arg(copy, char *);
 			printf("(nil)");
 		}
-		printf("%s", separator ? (i == n - 1 ? "\n" : separator)
-		       : (i == n - 1) ? "\n" : "");
+		printf("%s", separator && i != n - 1 ? separator
+		       : "");
 	}
+	printf("\n");
 	va_end(list);
 }
