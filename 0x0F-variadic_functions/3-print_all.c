@@ -10,7 +10,7 @@ void print_all(const char * const format, ...)
 	int a = 0;
 	char *copy, *sep = "";
 
-	if(!format)
+	if (!format)
 		return;
 	va_start(list, format);
 	while (format[a])
