@@ -10,6 +10,8 @@ void free_list(list_t *head)
 	list_t *current_addr = head;
 	list_t *next_addr;
 
+	if (head == NULL)
+		return;
 	while (current_addr->next != NULL)
 	{
 		free(current_addr->str);
@@ -17,6 +19,7 @@ void free_list(list_t *head)
 		free(current_addr);
 		current_addr = next_addr;
 	}
+
 	free(current_addr->str);
 	free(current_addr);
 }
