@@ -2,7 +2,7 @@
 
 /**
  * print_list - simple function to print the lements of a linked list
- *
+ * @h: pointer to the struct
  * Return: number of nodes
  */
 size_t print_list(const list_t *h)
