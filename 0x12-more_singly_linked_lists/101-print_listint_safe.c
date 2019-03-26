@@ -10,7 +10,7 @@ size_t print_listint_safe(const listint_t *head)
 	size_t i = 0;
 	listint_t *temp = (listint_t *)head;
 
-	while (temp && temp >= temp->next)
+	while (temp && temp > temp->next)
 	{
 		printf("[%p] %d\n", (void *)temp, temp->n);
 		temp = temp->next;
