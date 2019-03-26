@@ -12,7 +12,7 @@ size_t free_listint_safe(listint_t **h)
 
 	if (!h)
 		return (i);
-	while (*h && *h >= (*h)->next)
+	while (*h && *h > (*h)->next)
 	{
 		prev = *h;
 		*h = (*h)->next;
