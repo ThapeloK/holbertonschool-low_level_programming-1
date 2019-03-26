@@ -4,6 +4,7 @@
  * add_node - adds a node
  * @head: a pointer to head
  * @n: data part
+ * Return: a pointer
  */
 listint_t  *add_node(listint_t **head, int n)
 {
@@ -43,6 +44,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		}
 		if (!current)
 			return (NULL);
-		return(add_node(&(current->next)->next, n));
+		return (add_node(&(current->next)->next, n));
 	}
 }
