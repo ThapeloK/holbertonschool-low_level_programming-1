@@ -1,6 +1,23 @@
 #include "lists.h"
 
 /**
+ * add_node - adds a node
+ * @head: a pointer to head
+ * @n: data part
+ */
+listint_t  *add_node(listint_t **head, int n)
+{
+	listint_t *new_node = malloc(sizeof(listint_t));
+
+	if (!new_node)
+		return (NULL);
+	new_node->n = n;
+	new_node->next = *head;
+	*head = new_node;
+	return (*head);
+}
+
+/**
  * insert_nodeint_at_index - inserts a node at a given position
  * @head: reference pointer
  * @idx: nth node after which a new element is inserted
@@ -9,36 +26,23 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_node;
 	listint_t *current = *head;
-	listint_t *prev = *head;
-	unsigned int i = 0;
+	unsigned int i;
 
 	if (idx == 0 && head)
 	{
-		new_node = malloc(sizeof(listint_t));
-		if (!new_node)
-			return (NULL);
-		new_node->n = n;
-		new_node->next = *head;
-		*head = new_node;
-		return (*head);
+		return (add_node(head, n));
 	}
-	while (current && head)
+	else
 	{
-		if (i == idx)
+		for (i = 0; i < idx - 1; i++)
 		{
-			new_node = malloc(sizeof(listint_t));
-			if (!new_node)
+			if (!current)
 				return (NULL);
-			new_node->n = n;
-			new_node->next = current;
-			prev->next = new_node;
-			return (new_node);
+			current = current->next;
 		}
-		prev = current;
-		current = current->next;
-		i++;
+		if (!current)
+			return (NULL);
+		return(add_node(&(current->next)->next, n));
 	}
-	return (NULL);
 }
