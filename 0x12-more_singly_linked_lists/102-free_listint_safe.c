@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * size_t free_listint_safe - frees the circular linked list
- * @head: pointer to the head
+ * free_listint_safe - frees the circular linked list
+ * @h: pointer to the head
  * Return: number of nodes
  */
 size_t free_listint_safe(listint_t **h)
