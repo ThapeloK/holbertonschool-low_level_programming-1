@@ -10,7 +10,8 @@ int set_bit(unsigned long int *n, unsigned int index)
 {
 	if ((*n > 0 || *n == 0) && (index > 0 || (index == 0)))
 	{
-		return (*n = *n | (1 << index));
+		*n = *n | (1 << index);
+		return (1);
 	}
 	return (-1);
 }
