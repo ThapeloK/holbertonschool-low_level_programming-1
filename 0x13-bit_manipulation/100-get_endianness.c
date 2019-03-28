@@ -1,10 +1,8 @@
 #include "holberton.h"
 
 /**
- * get_endianness -
- * @n: number to be checked
- * @m: desired number
- * Return: number of bits you need to flip to get m from n
+ * get_endianness - checks endiness of system
+ * Return: 0 or 1
  */
 int get_endianness(void)
 {
