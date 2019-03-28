@@ -12,7 +12,7 @@ unsigned int binary_to_uint(const char *b)
 
 	while (b[len])
 	{
-		if (!b[0] || (b[len] != '0' && b[len] != '1'))
+		if (!b || (b[len] != '0' && b[len] != '1'))
 			return (0);
 		len++;
 	}
@@ -20,7 +20,7 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (b[i] == '1')
 			num += val;
-		val *= 2;
+		val <<= 1;
 	}
 	return (num);
 }
