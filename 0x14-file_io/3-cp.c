@@ -1,7 +1,4 @@
 #include "holberton.h"
-#define OUTPUT_BUF_SIZE 1024
-#define BUFFER 1024
-#define BUF_FLUSH -1
 
 /**
  * main - cp commnad
@@ -33,6 +30,8 @@ int main(int argc, char *argv[])
 		if (o2 == -1 || write(o2, buf, r) != r)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			close(o1);
+			close(o2);
 			exit(99);
 		}
 	}
