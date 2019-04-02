@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	c1 = close(o1), c2 = close(o2);
 	if (c1 == -1 || c2 == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %ld\n", c1 == -1 ? c1 : c2);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %ld\n", c1 == -1 ? o1 : o2);
 		exit(100);
 	}
 	return (0);
