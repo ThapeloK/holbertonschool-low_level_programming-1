@@ -4,7 +4,7 @@
  * delete_dnodeint_at_index - Delete node at index
  * @head: Doubly linked list
  * @index: index
- * Return: 1 on success, 0 on failure
+ * Return: 1 on success, -1 on failure
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
@@ -36,14 +36,9 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		index--;
 		temp = temp->next;
 	}
-	if (i - 1 == index)
-	{
-		temp->prev->next = NULL;
-		free(temp);
-		return (1);
-	}
 	temp->prev->next = temp->next;
-	temp->next->prev = temp->prev;
+	if (temp->next)
+		temp->next->prev = temp->prev;
 	free(temp);
 	return (1);
 }
