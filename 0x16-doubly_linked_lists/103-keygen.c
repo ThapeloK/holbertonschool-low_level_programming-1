@@ -1,6 +1,24 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
+
+/**
+ * _strlen - returns the length of the string
+ * @s: takes string
+ *
+ * Return: returns the length int
+ */
+
+int _strlen(char *s)
+{
+	int count;
+
+	count = 0;
+	while (s[count])
+	{
+		count++;
+	}
+	return (count);
+}
 
 /**
  * f4 - helper function
@@ -81,7 +99,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (-1);
-	len = strlen(argv[1]);
+	len = _strlen(argv[1]);
 	arr[0] = t[(len ^ 59) & 63];
 
 	while (i < len)
