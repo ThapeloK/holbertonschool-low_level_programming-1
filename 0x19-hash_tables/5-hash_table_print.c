@@ -23,8 +23,8 @@ void hash_table_print(const hash_table_t *ht)
 			{
 				c++;
 				if (c != 1)
-					del =", ";
-				printf("%s'%s': ",del, array->key);
+					del = ", ";
+				printf("%s'%s': ", del, array->key);
 				printf("'%s'", array->value);
 				array = array->next;
 			}
