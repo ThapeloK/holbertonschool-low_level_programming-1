@@ -1,23 +1,13 @@
 #include "sort.h"
 
 /**
- * swap - Swaps two numbers
- * @n1: First number
- * @n2: Second number
+ * swap_node - Swaps two nodes
+ * @a: First node
+ * @b: Second node
  * Return: Nothing
  */
 void swap_node(listint_t *a, listint_t *b)
 {
-	/* listint_t *prev; */
-
-	/* prev = (*head)->prev; */
-	/* if ((*head)->prev->prev) */
-	/* 	(*head)->prev->prev->next = *head; */
-	/* (*head)->prev = (*head)->prev->prev; */
-	/* prev->prev = *head; */
-	/* prev->next = (*head)->next; */
-	/* (*head)->next = prev; */
-	/* (*head)->next = prev; */
 	if (a->prev)
 		a->prev->next = b;
 	if (b->next)
@@ -42,7 +32,7 @@ void insertion_sort_list(listint_t **list)
 		return;
 
 	current = (*list)->next;
-	while(current)
+	while (current)
 	{
 		iter = current;
 		current = current->next;
