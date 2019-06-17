@@ -11,8 +11,8 @@ void shell_sort(int *array, size_t size)
 	uint gap = 1, i, j;
 	int temp;
 
-	/* Find the biggest number in Knuth's */
-	/* sequence which is less than size*/
+	if (!array || size < 2)
+		return;
 	while ((gap * 3) + 1 < size)
 	{
 		gap = gap * 3 + 1;
