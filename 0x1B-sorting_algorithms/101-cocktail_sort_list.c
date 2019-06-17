@@ -29,6 +29,8 @@ void cocktail_sort_list(listint_t **list)
 	char flag = 0;
 	listint_t *current;
 
+	if (!list || !*list)
+		return;
 	current = *list;
 	for (;;)
 	{
