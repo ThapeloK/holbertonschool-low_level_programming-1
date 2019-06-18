@@ -5,12 +5,12 @@
  * @array: Array to be sorted
  * @size: Size of the array
  * @m: Middle index
+ * @temp: Temp array
  * Return: Nothing.
  */
-void merge(int *array, int size, int m)
+void merge(int *array, int size, int m, int *temp)
 {
 	int i, j, k;
-	int *x = malloc(sizeof(int) * size);
 
 	printf("Merging...\n");
 	printf("[left]: ");
@@ -19,18 +19,54 @@ void merge(int *array, int size, int m)
 	print_array(array + m, size - m);
 	for (i = 0, j = m, k = 0; k < size; k++)
 	{
-		x[k] = j == size              ? array[i++]
-			: i == m              ? array[j++]
-			: array[j] < array[i] ? array[j++]
-			:                       array[i++];
+
+		if (j == size)
+		{
+			temp[k] = array[i];
+			i++;
+		}
+		else if (i == m)
+		{
+			temp[k] = array[j];
+			j++;
+		}
+		else if (array[j] < array[i])
+		{
+			temp[k] = array[j];
+			j++;
+		}
+		else
+		{
+			temp[k] = array[i];
+			i++;
+		}
 	}
 	for (i = 0; i < size; i++)
 	{
-		array[i] = x[i];
+		array[i] = temp[i];
 	}
 	printf("[Done]: ");
-	print_array(x, size);
-	free(x);
+	print_array(temp, size);
+}
+
+
+/**
+ * merge_main - merge sort
+ * @array: Array to be sorted
+ * @size: Size of the array
+ * @temp: Temp array
+ * Return: Nothing.
+ */
+void merge_main(int *array, size_t size, int *temp)
+{
+	int m;
+
+	if (size < 2)
+		return;
+	m = size / 2;
+	merge_main(array, m, temp);
+	merge_main(array + m,  size - m, temp);
+	merge(array, size, m, temp);
 }
 
 
@@ -42,12 +78,13 @@ void merge(int *array, int size, int m)
  */
 void merge_sort(int *array, size_t size)
 {
-	int m;
+	int *temp = NULL;
 
 	if (!array || size < 2)
 		return;
-	m = size / 2;
-	merge_sort(array, m);
-	merge_sort(array + m,  size - m);
-	merge(array, size, m);
+	temp = malloc(sizeof(int) * size);
+	if (!temp)
+		return;
+	merge_main(array, size, temp);
+	free(temp);
 }
