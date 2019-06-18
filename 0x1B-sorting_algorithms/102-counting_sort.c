@@ -64,13 +64,14 @@ void counting_sort(int *array, size_t size)
 	while (i < j)
 		copy[i] += copy[i - 1],	i++;
 	print_array(copy, max + 1), i = 0;
-	while (i++ < size)
+	while (i < size)
 	{
 		res[copy[array[i]] - 1] = array[i];
 		copy[array[i]]--;
+		i++;
 	}
 	i = 0;
-	while (i++ < size)
-		array[i] = res[i];
+	while (i < size)
+		array[i] = res[i], i++;
 	free(copy), free(res);
 }
