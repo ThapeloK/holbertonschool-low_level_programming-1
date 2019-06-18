@@ -71,6 +71,8 @@ void heap_sort(int *array, size_t size)
 {
 	size_t end = 0;
 
+	if (!array)
+		return;
 	heapify(array, size);
 	end = size - 1;
 	while (end > 0)
