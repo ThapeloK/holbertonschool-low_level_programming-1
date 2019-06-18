@@ -1,6 +1,5 @@
 #include "sort.h"
 
-
 /**
  * merge - merge sort
  * @array: Array to be sorted
@@ -41,7 +40,7 @@ void merge(int *array, int size, int m)
  * @size: Size of the array
  * Return: Nothing.
  */
-void merge_sort(int *array, int size)
+void merge_sort(int *array, size_t size)
 {
 	int m;
 
