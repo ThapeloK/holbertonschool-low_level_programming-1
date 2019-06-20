@@ -19,11 +19,11 @@ void counting_sort_radix(int *array, size_t size, int exp)
 	for (i = 0; i < size; i++)
 		freq[(array[i] / exp) % 10]++;
 	for (i = 1; i < 10; i++)
-		freq[i] +=freq[i - 1];
+		freq[i] += freq[i - 1];
 	for (j = size - 1; j >= 0; j--)
 	{
 		output[freq[(array[j] / exp) % 10] - 1] = array[j];
-		freq[(array[j]/ exp) % 10]--;
+		freq[(array[j] / exp) % 10]--;
 	}
 	for (i = 0; i < size; i++)
 		array[i] = output[i];
