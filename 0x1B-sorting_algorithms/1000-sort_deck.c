@@ -18,6 +18,12 @@ void swap_node(deck_node_t *a, deck_node_t *b)
 	b->next = a;
 }
 
+/**
+ * get_index - Gets index of a card
+ * @node: cards
+ * Return: Index
+ */
+
 int get_index(deck_node_t *node)
 {
 	int index = 0;
@@ -36,8 +42,9 @@ int get_index(deck_node_t *node)
 		index += 1;
 	else
 		index += value[0] - '0';
-	return index;
+	return (index);
 }
+
 /**
  * sort_deck - Sorts a deck of cards
  * @deck: unsorted deck of cards
