@@ -35,7 +35,7 @@ int partition(int *arr, int low, int high, size_t size)
 		while (arr[j] > pivot)
 			j--;
 		if (i > j)
-			return j;
+			return (j);
 		print_array(arr, size);
 		swap(&arr[i], &arr[j]);
 	}
@@ -63,7 +63,7 @@ void quickSort(int *arr, int low, int high, size_t size)
 }
 
 /**
- * quick_sort - Quick sorting algorithm
+ * quick_sort_hoare - Quick sort Hoare
  * @array: Array
  * @size: Size of the @array
  * Return: Nothing
