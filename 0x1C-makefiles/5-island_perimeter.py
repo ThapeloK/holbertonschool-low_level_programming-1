@@ -8,12 +8,12 @@ def island_perimeter(grid):
     """Function to find the perimeter of an island"""
     res = 0
     if not grid:
-        return
+        return 0
     if not all(type(arr) == list for arr in grid):
-        return
+        return 0
     al = len(grid[0])
     if not all(len(arr) == al for arr in grid):
-        return
+        return 0
 
     al = al - 1
     gl = len(grid) - 1
