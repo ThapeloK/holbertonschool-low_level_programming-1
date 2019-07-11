@@ -3,7 +3,12 @@ SRC = main.c holberton.c
 OBJ = $(SRC:.c=.o)
 NAME = holberton
 CFLAGS = -Wall -Werror -Wextra -pedantic
+HEADER = "m.h"
 
+check:
+	@if [ ! -e $(HEADER) ]; then \
+		exit; \
+	fi
 all : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
