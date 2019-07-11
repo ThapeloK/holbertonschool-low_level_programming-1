@@ -11,21 +11,23 @@ def island_perimeter(grid):
         return
     if not all(type(arr) == list for arr in grid):
         return
-    l = len(grid[0])
-    if not all(len(arr) == l for arr in grid):
+    al = len(grid[0])
+    if not all(len(arr) == al for arr in grid):
         return
 
+    al = al - 1
+    gl = len(grid) - 1
     for i, arr in enumerate(grid):
         for j, val in enumerate(arr):
             if (val == 1):
                 res += 4
-                if arr[j - 1] == 1:
+                if j == 0 or arr[j - 1] == 1:
                     res -= 1
-                if arr[j + 1] == 1:
+                if j == al or arr[j + 1] == 1:
                     res -= 1
-                if grid[i - 1][j] == 1:
+                if i == 0 or grid[i - 1][j] == 1:
                     res -= 1
-                if grid[i + 1][j] == 1:
+                if i == gl or grid[i + 1][j] == 1:
                     res -= 1
 
     return res
