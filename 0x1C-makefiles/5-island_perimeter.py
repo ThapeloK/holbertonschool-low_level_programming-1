@@ -28,6 +28,5 @@ def island_perimeter(grid):
                     res += 1
                 if i == gl or grid[i + 1][j] == 0:
                     res += 1
-                print(res)
 
     return res
