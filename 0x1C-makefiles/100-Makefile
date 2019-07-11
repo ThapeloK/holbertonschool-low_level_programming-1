@@ -5,10 +5,8 @@ NAME = holberton
 CFLAGS = -Wall -Werror -Wextra -pedantic
 HEADER = "m.h"
 
-check:
-	@if [ ! -e $(HEADER) ]; then \
-		exit; \
-	fi
+ifneq ("$(wildcard m.h)", "")
+
 all : $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
@@ -23,3 +21,5 @@ oclean :
 fclean : clean oclean
 
 re : oclean all
+
+endif
