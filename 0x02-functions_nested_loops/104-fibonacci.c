@@ -8,16 +8,16 @@
 
 int main(void)
 {
-	long h1, h2, h3, t1, t2, t3;
-	int i, d;
+	long h1, h2, h3, t1, t2, t3, d;
+	int i;
 
 	h1 = 0;
 	h2 = 0;
 	t1 = 1;
 	t2 = 2;
-	d = 10000;
+	d = 10000000000000000;
 	printf("%lu, %lu, ", t1, t2);
-	for (i = 2; i <= 97; i++)
+	for (i = 2; i <= 180; i++)
 	{
 		h3 = h1 + h2;
 		t3 = t1 + t2;
@@ -29,8 +29,8 @@ int main(void)
 		if (h3 == 0)
 			printf("%lu", t3);
 		else
-			printf("%lu%04lu", h3, t3);
-		if (i != 97)
+			printf("%lu%016lu", h3, t3);
+		if (i != 200)
 			printf(", ");
 		else
 			putchar('\n');

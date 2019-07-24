@@ -1,5 +1,4 @@
 #include "holberton.h"
-#define MIN -1
 /**
  * get_bit - gets the bit in index
  * @n: the number

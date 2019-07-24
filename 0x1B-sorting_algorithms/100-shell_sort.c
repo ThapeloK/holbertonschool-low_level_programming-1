@@ -1,6 +1,21 @@
 #include "sort.h"
 
 /**
+ * swap - Swaps two numbers
+ * @n1: First number
+ * @n2: Second number
+ * Return: Nothing
+ */
+void swap(int *n1, int *n2)
+{
+	int temp;
+
+	temp = *n1;
+	*n1 = *n2;
+	*n2 = temp;
+}
+
+/**
  * shell_sort - Shell sorting algorithm using Knuth's sequence
  * @array: Array to be sorted
  * @size: Size of the array

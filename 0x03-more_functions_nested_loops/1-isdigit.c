@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
 * _isdigit - checks  numbers
 * @c: takes numbers

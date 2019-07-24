@@ -28,17 +28,17 @@ int _strlen(char *s)
  */
 char *str_concat(char *s1, char *s2)
 {
-	unsigned int len, len1, len2, i = 0, j = 0;
+	unsigned int len, len1 = 0, len2 = 0, i = 0, j = 0;
 	char *str;
 
-	if (s1 == NULL)
-		len1 = 0;
-	else
-		len1 = _strlen(s1);
-	if (s2 == NULL)
-		len2 = 0;
-	else
-		len2 = _strlen(s2);
+	/* if (s1 == NULL) */
+	/* 	len1 = 0; */
+	/* else */
+	len1 = _strlen(s1);
+	/* if (s2 == NULL) */
+	/* 	len2 = 0; */
+	/* else */
+	len2 = _strlen(s2);
 	len = len1 + len2;
 	str = malloc(sizeof(char) * len + 1);
 	if (!str)

@@ -1,8 +1,8 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
 * print_number - prints int with putchar
-* @n: takes number
+* @n: takes number, hello
 *
 * Return: void
 */
