@@ -50,10 +50,9 @@ int balance(const binary_tree_t *tree)
 
 	left = binary_tree_height(tree->left);
 	right = binary_tree_height(tree->right);
-	if (abs(left - right) <= 1 && balance(tree->left)
-	    && balance(tree->right))
-		return (1);
-	return (0);
+	return (abs(left - right) <= 1
+		&& balance(tree->left)
+		&& balance(tree->right));
 }
 
 
