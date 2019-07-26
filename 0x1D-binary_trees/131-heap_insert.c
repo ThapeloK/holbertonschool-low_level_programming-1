@@ -100,14 +100,14 @@ heap_t *heap_insert(heap_t **root, int value)
 		if (!temp->left)
 		{
 			temp->left = binary_tree_node(temp, value);
-			if (temp->left)
+			if (!temp->left)
 				return (NULL);
 			return (heapify(temp->left));
 		}
 		else if (!temp->right)
 		{
 			temp->right = binary_tree_node(temp, value);
-			if (temp->right)
+			if (!temp->right)
 				return (NULL);
 			return (heapify(temp->right));
 		}
