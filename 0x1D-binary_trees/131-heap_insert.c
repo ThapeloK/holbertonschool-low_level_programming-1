@@ -1,24 +1,59 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_full - function that checks if a binary tree is full
- * @tree: pointer to root node of tree to check
- * Return: 1 if full, otherwise 0
+ * find_depth - returns depth of leftmost leaf
+ * @tree: root tree or subtree
+ * Return: depth
  */
-int binary_tree_is_full(const binary_tree_t *tree)
+int find_depth(const binary_tree_t *tree)
 {
+	int depth = 0;
+
+	while (tree)
+	{
+		depth++;
+		tree = tree->left;
+	}
+	return (depth);
+}
+
+/**
+ * is_perfect_recursion - recursive function to check if bt is perfect
+ * @tree: root
+ * @depth: depth
+ * @level: checks level
+ * Return: 1 if true, 0 if false
+ */
+int is_perfect_recursion(const binary_tree_t *tree, int depth, int level)
+{
+	if (tree == NULL)
+		return (1);
+
+	if (tree->left == NULL && tree->right == NULL)
+		return (depth == level + 1);
+
+	if (tree->left == NULL || tree->right == NULL)
+		return (0);
+
+	return (is_perfect_recursion(tree->left, depth, level + 1) &&
+		is_perfect_recursion(tree->right, depth, level + 1));
+}
+
+/**
+ * binary_tree_is_perfect - function that checks if a binary tree is perfect
+ * @tree: binary tree
+ * Return: 1 if @tree is perfect
+ */
+int binary_tree_is_perfect(const binary_tree_t *tree)
+{
+	int depth;
+
 	if (tree == NULL)
 		return (0);
 
-	if (!tree->left && !tree->right)
-		return (1);
+	depth = find_depth(tree);
 
-	if (tree->left && tree->right)
-	{
-		return (binary_tree_is_full(tree->left) &&
-			binary_tree_is_full(tree->right));
-	}
-	return (0);
+	return (is_perfect_recursion(tree, depth, 0));
 }
 
 /**
@@ -111,8 +146,8 @@ heap_t *heap_insert(heap_t **root, int value)
 				return (NULL);
 			return (heapify(temp->right));
 		}
-		r_full = binary_tree_is_full(temp->right);
-		l_full = binary_tree_is_full(temp->left);
+		r_full = binary_tree_is_perfect(temp->right);
+		l_full = binary_tree_is_perfect(temp->left);
 		r_height = binary_tree_height(temp->right);
 		l_height = binary_tree_height(temp->left);
 		if ((r_full && l_full && r_height == l_height)
