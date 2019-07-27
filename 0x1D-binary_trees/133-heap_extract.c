@@ -1,11 +1,12 @@
 #include "binary_trees.h"
+#define swap(x, y) { *x = *x + *y; *y = *x - *y; *x = *x - *y; }
 
 /**
- * binary_tree_height - function that measures the height of a binary tree
+ * height - function that measures the height of a binary tree
  * @tree: binary tree
  * Return: height of the @tree
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t height(const binary_tree_t *tree)
 {
 	size_t l_height;
 	size_t r_height;
@@ -34,11 +35,11 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * find_depth - returns depth of leftmost leaf
+ * depth - returns depth of leftmost leaf
  * @tree: root tree or subtree
  * Return: depth
  */
-int find_depth(const binary_tree_t *tree)
+int depth(const binary_tree_t *tree)
 {
 	int depth = 0;
 
@@ -51,13 +52,13 @@ int find_depth(const binary_tree_t *tree)
 }
 
 /**
- * is_perfect_recursion - recursive function to check if bt is perfect
+ * is_perfect - recursive function to check if bt is perfect
  * @tree: root
  * @depth: depth
  * @level: checks level
  * Return: 1 if true, 0 if false
  */
-int is_perfect_recursion(const binary_tree_t *tree, int depth, int level)
+int is_perfect(const binary_tree_t *tree, int depth, int level)
 {
 	if (tree == NULL)
 		return (1);
@@ -68,40 +69,8 @@ int is_perfect_recursion(const binary_tree_t *tree, int depth, int level)
 	if (tree->left == NULL || tree->right == NULL)
 		return (0);
 
-	return (is_perfect_recursion(tree->left, depth, level + 1) &&
-		is_perfect_recursion(tree->right, depth, level + 1));
-}
-
-/**
- * binary_tree_is_perfect - function that checks if a binary tree is perfect
- * @tree: binary tree
- * Return: 1 if @tree is perfect
- */
-int binary_tree_is_perfect(const binary_tree_t *tree)
-{
-	int depth;
-
-	if (tree == NULL)
-		return (0);
-
-	depth = find_depth(tree);
-
-	return (is_perfect_recursion(tree, depth, 0));
-}
-
-/**
- * swap - Swaps two numbers
- * @n1: First number
- * @n2: Second number
- * Return: Nothing
- */
-void swap(int *n1, int *n2)
-{
-	int temp;
-
-	temp = *n1;
-	*n1 = *n2;
-	*n2 = temp;
+	return (is_perfect(tree->left, depth, level + 1) &&
+		is_perfect(tree->right, depth, level + 1));
 }
 
 /**
@@ -160,6 +129,11 @@ int heap_extract(heap_t **root)
 	{
 		if (!curr->left && !curr->right)
 		{
+			if (curr == *root)
+			{
+				temp = curr->n, free(curr), *root = NULL;
+				return (temp);
+			}
 			temp = (*root)->n;
 			(*root)->n = curr->n;
 			curr->n = temp;
@@ -171,10 +145,10 @@ int heap_extract(heap_t **root)
 			full_heapify(*root);
 			return (temp);
 		}
-		r_full = binary_tree_is_perfect(curr->right);
-		l_full = binary_tree_is_perfect(curr->left);
-		r_height = binary_tree_height(curr->right);
-		l_height = binary_tree_height(curr->left);
+		r_full = is_perfect(curr->right, depth(curr->right), 0);
+		l_full = is_perfect(curr->left, depth(curr->left), 0);
+		r_height = height(curr->right);
+		l_height = height(curr->left);
 		if ((r_full && l_full && r_height < l_height)
 		    || (r_full && !l_full && r_height != l_height)
 		    || (!curr->right))
