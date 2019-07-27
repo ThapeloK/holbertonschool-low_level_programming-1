@@ -34,23 +34,6 @@ size_t binary_tree_height(const binary_tree_t *tree)
 }
 
 /**
- * find_depth - returns depth of leftmost leaf
- * @tree: root tree or subtree
- * Return: depth
- */
-int find_depth(const binary_tree_t *tree)
-{
-	int depth = 0;
-
-	while (tree)
-	{
-		depth++;
-		tree = tree->left;
-	}
-	return (depth);
-}
-
-/**
  * is_perfect_recursion - recursive function to check if bt is perfect
  * @tree: root
  * @depth: depth
@@ -79,12 +62,16 @@ int is_perfect_recursion(const binary_tree_t *tree, int depth, int level)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	int depth;
+	int depth = 0;
 
 	if (tree == NULL)
 		return (0);
 
-	depth = find_depth(tree);
+	while (tree)
+	{
+		depth++;
+		tree = tree->left;
+	}
 
 	return (is_perfect_recursion(tree, depth, 0));
 }
