@@ -77,27 +77,14 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 }
 
 /**
- * swap - Swaps two numbers
- * @n1: First number
- * @n2: Second number
- * Return: Nothing
- */
-void swap(int *n1, int *n2)
-{
-	int temp;
-
-	temp = *n1;
-	*n1 = *n2;
-	*n2 = temp;
-}
-
-/**
  * full_heapify - heapifies full tree
  * @node: node of binary tree
  * Return: Nothing.
  */
 void full_heapify(heap_t *node)
 {
+	int t;
+
 	if (!node || (!node->left && !node->right))
 		return;
 	while (node)
@@ -105,24 +92,28 @@ void full_heapify(heap_t *node)
 		if (node->left && node->right && node->n < node->right->n &&
 		    node->n < node->left->n && node->left->n < node->right->n)
 		{
-			swap(&node->n, &node->right->n);
+			/* swap(&node->n, &node->right->n); */
+			t = node->n, node->n = node->right->n, node->right->n = t;
 			node = node->right;
 		}
 		else if (node->left && node->right && node->n < node->right->n
 			 && node->n < node->left->n
 			 && node->left->n > node->right->n)
 		{
-			swap(&node->n, &node->left->n);
+			t = node->n, node->n = node->left->n, node->left->n = t;
+			/* swap(&node->n, &node->left->n); */
 			node = node->left;
 		}
 		else if (node->left && node->left->n > node->n)
 		{
-			swap(&node->n, &node->left->n);
+			/* swap(&node->n, &node->left->n); */
+			t = node->n, node->n = node->left->n, node->left->n = t;
 			node = node->left;
 		}
 		else if (node->right && node->right->n > node->n)
 		{
-			swap(&node->n, &node->right->n);
+			t = node->n, node->n = node->right->n, node->right->n = t;
+			/* swap(&node->n, &node->right->n); */
 			node = node->right;
 		}
 		else
