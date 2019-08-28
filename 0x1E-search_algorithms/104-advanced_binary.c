@@ -49,7 +49,7 @@ int binary_search_rec(int *array, size_t start, size_t end,  int value)
 		return (binary_search_rec(array, mid + 1, end,  value));
 	}
 	else
-		return (binary_search_rec(array, start, mid - 1, value));
+		return (binary_search_rec(array, start, mid, value));
 }
 
 /**
