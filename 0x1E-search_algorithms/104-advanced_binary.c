@@ -35,34 +35,22 @@ int binary_search_rec(int *array, size_t start, size_t end,  int value)
 {
 	size_t mid;
 
-	/* if (start > end) */
-	/* 	return (-1); */
-	/* mid = (start + end) / 2; */
-	/* printer(array, start, end); */
-	/* if ((mid == 0 || value > array[mid - 1]) && array[mid] == value) */
-	/* { */
-	/* 	if (array[mid] == array[mid - 1]) */
-	/* 		return (binary_search_rec(array, start, mid, value)); */
-	/* 	return (mid); */
-	/* } */
-	/* if (array[mid] < value) */
-	/* { */
-	/* 	return (binary_search_rec(array, start, mid + 1, value)); */
-	/* } */
-	/* else */
-	/* 	return (binary_search_rec(array, mid - 1, end, value)); */
-	if(end >= start)
+	if (start > end)
+		return (-1);
+	mid = (start + end) / 2;
+	printer(array, start, end);
+	if (array[mid] == value)
 	{
-		printer(array, start, end);
-		mid = start + (end - start)/2;
-		if( ( mid == 0 || value > array[mid-1]) && array[mid] == value)
-			return mid;
-		else if(value <= array[mid])
-			return (binary_search_rec(array, start, mid - 1, value));
-		else
-			return (binary_search_rec(array, mid + 1, end, value));
+		if (array[mid] == array[mid - 1])
+			return (binary_search_rec(array, start, mid, value));
+		return (mid);
 	}
-	return -1;
+	if (array[mid] < value)
+	{
+		return (binary_search_rec(array, mid + 1, end,  value));
+	}
+	else
+		return (binary_search_rec(array, start, mid - 1, value));
 }
 
 /**
