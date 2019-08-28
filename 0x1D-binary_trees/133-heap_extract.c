@@ -76,6 +76,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	return (is_perfect_recursion(tree, depth, 0));
 }
 
+
 /**
  * full_heapify - heapifies full tree
  * @node: node of binary tree
